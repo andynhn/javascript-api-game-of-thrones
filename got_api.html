@@ -1,0 +1,133 @@
+<!-- By Andy Nguyen -->
+<!-- Use the Game of Thrones API to display information on each house -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title>Game of Thrones API Assignment</title>
+    <style>
+        img {
+            width: 225px;
+            border: solid silver 10px;
+            margin: 5px;
+        }
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#baratheon').click(function(){
+                console.log("button works")
+                $.get("https://anapioficeandfire.com/api/houses/17", function(data) {
+                    var house_baratheon = data;
+                    console.log(house_baratheon)
+                    $('#placeholder1').html(
+                        "<h5>House Details</h5>" + 
+                        "<p>Name: " + house_baratheon.name + "</p>" +
+                        "<p>Words: '" + house_baratheon.words + "'</p>" +
+                        "<p>Titles: " + house_baratheon.titles + "</p>" +
+                        "<p>Coat of Arms: " + house_baratheon.coatOfArms + "</p>"
+                    );
+                });
+            })
+            $('#lannister').click(function(){
+                console.log("button works")
+                $.get("https://anapioficeandfire.com/api/houses/229", function(data) {
+                    var house_lannister = data;
+                    console.log(house_lannister)
+                    $('#placeholder1').html(
+                        "<h5>House Details</h5>" + 
+                        "<p>Name: " + house_lannister.name + "</p>" +
+                        "<p>Words: '" + house_lannister.words + "'</p>" +
+                        "<p>Titles: " + house_lannister.titles + "</p>" +
+                        "<p>Coat of Arms: " + house_lannister.coatOfArms + "</p>"
+                    );
+                });
+            })
+            $('#stark').click(function(){
+                console.log("button works")
+                $.get("https://anapioficeandfire.com/api/houses/362", function(data) {
+                    var house_stark = data;
+                    console.log(house_stark)
+                    $('#placeholder1').html(
+                        "<h5>House Details</h5>" + 
+                        "<p>Name: " + house_stark.name + "</p>" +
+                        "<p>Words: '" + house_stark.words + "'</p>" +
+                        "<p>Titles: " + house_stark.titles + "</p>" +
+                        "<p>Coat of Arms: " + house_stark.coatOfArms + "</p>"
+                    );
+                });
+            })
+            $('#targaryen').click(function(){
+                console.log("button works")
+                $.get("https://anapioficeandfire.com/api/houses/378", function(data) {
+                    var house_targaryen = data;
+                    console.log(house_targaryen)
+                    $('#placeholder1').html(
+                        "<h5>House Details</h5>" + 
+                        "<p>Name: " + house_targaryen.name + "</p>" +
+                        "<p>Words: '" + house_targaryen.words + "'</p>" +
+                        "<p>Titles: " + house_targaryen.titles + "</p>" +
+                        "<p>Coat of Arms: " + house_targaryen.coatOfArms + "</p>"
+                    );
+                });
+            })
+
+            // Auto loads the API data on page load and displays information in the console. To help with debugging.
+            $.get("https://anapioficeandfire.com/api/houses/362", displayName)
+            function displayName(data) {
+            console.log(data);
+            }
+            $.get("https://anapioficeandfire.com/api/houses/378", displayName)
+            function displayName(data) {
+            console.log(data);
+            }
+            $.get("https://anapioficeandfire.com/api/houses/229", displayName)
+            function displayName(data) {
+            console.log(data);
+            }
+            $.get("https://anapioficeandfire.com/api/houses/17", displayName)
+            function displayName(data) {
+            console.log(data);
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Game of Thrones</h1>
+        <h4 class="text-center">Houses</h4>
+        <div class="row d-flex justify-content-center">
+            <div>
+                <a href="#"><img src="img/stark.jpg" alt="House Stark" id="stark"></a>
+            </div>
+            <div>
+                <a href="#"><img src="img/targaryen.jpg" alt="House Targaryen" id="targaryen"></a>
+            </div>
+            <div>
+                <a href="#"><img src="img/lannister.jpg" alt="House Lannister" id="lannister"></a>
+            </div>
+            <div>
+                <a href="#"><img src="img/baratheon.png" alt="House Baratheon" id="baratheon"></a>
+            </div>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center mt-3">
+        <div class="row d-flex justify-content-center w-50">
+            <div id="placeholder1"></div>
+        </div>
+    </div>
+
+</body>
+</html>
